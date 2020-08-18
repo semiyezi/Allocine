@@ -3,8 +3,7 @@ import axios from'axios'
 import { Link } from "react-router-dom";
 import { Grid, Image,Pagination, Container,Input,Card} from 'semantic-ui-react'
 import Menu from'./Menu'
-import Footer from'./Footer'
-import BackgroungVideo from'./BackgroundVideo'
+
 
 function TopVideo (){
    
@@ -69,7 +68,7 @@ function TopVideo (){
 <Pagination  ellipsisItem={null} firstItem={null} lastItem={null} size="mini" defaultActivePage={1} activePage={pagination}  totalPages={data.total_pages} onPageChange={(e,{activePage}) =>{setPagination(activePage)}}/>
 </div>
 </Container><br/><br/>
-<Footer/>
+
 </div>
 )
 }

@@ -31,54 +31,35 @@ function Detail  () {
   })
 
 
-  //   axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=37aeb7ef66b2e8d4f4c2dc977aea8e27&language=fr-FR`)
-  //   .then((res)=>{
-  //     setLireVideo(res.data.results);
-  //     console.log("------------");
-  //     console.log(res.data.results);
-     
-     
-  //   })
-  //   .catch((e)=>console.log(e))
-  // },[]);
-  // console.log(data);
-  
-
   return(
 
   <div>
     <Menu/>
     <Container  style={{backgroundColor:"#fff",color:"##81807F",marginTop:"170px"}}>
-    <div className="retour" >
-   <Link to="/upcoming" mobile={16} tablet={8} computer={4}> 
-      <Button icon='arrow circle left' style={{backgroundColor:"#fff"}} />
-     </Link>
-  </div>
-  <Grid>
-    <Grid.Column mobile={16} tablet={8} computer={6}>
-    <Image src={"https://image.tmdb.org/t/p/w500/"+ detail.poster_path} />
-    </Grid.Column>
-    <Grid.Column mobile={16} tablet={12} computer={10} >
-      {lireVideo.map(video=><YouTube videoId={video.key} autoplay/> )}
-      
-     <h1>Titre</h1>
-     <p>{detail.title}</p>
-     <h1>Aperçu du film</h1>
-  <p style={{textAlign:"justify",padding:"4%"}} >{detail.overview===null ? "Pas de résumé disponible pour ce film":detail.overview}</p>
-  <h1>Durée </h1>
-  <p>{detail.runtime} minutes</p>
-  <h1>Vote</h1>
-  <p> {detail.vote_average} </p>
-  <div style={{float:"left"}}>
-      <Link to="/VoirVideo" mobile={16} tablet={8} computer={4}> 
-      <Button icon='caret square right outline' style={{backgroundColor:"#81807F"}} />
-     </Link>
-    </div>
-    </Grid.Column>
+      <div className="retour" >
+      <Link to="/upcoming" mobile={16} tablet={8} computer={4}> 
+          <Button icon='arrow circle left' style={{backgroundColor:"#fff"}} />
+      </Link>
+      </div>
+      <Grid>
+        <Grid.Column mobile={16} tablet={8} computer={6}>
+          <Image src={"https://image.tmdb.org/t/p/w500/"+ detail.poster_path} />
+        </Grid.Column>
+        <Grid.Column mobile={16} tablet={12} computer={10} >
+           {lireVideo.map(video=><YouTube videoId={video.key} autoplay/> )}
+          <h1>Titre</h1>
+          <p>{detail.title}</p>
+          <h1>Aperçu du film</h1>
+          <p style={{textAlign:"justify",padding:"4%"}} >{detail.overview===null ? "Pas de résumé disponible pour ce film":detail.overview}</p>
+          <h1>Durée </h1>
+          <p>{detail.runtime} minutes</p>
+          <h1>Vote</h1>
+          <p> {detail.vote_average} </p>
+        </Grid.Column>
    
-  </Grid>
+      </Grid>
  
-  </Container>
+    </Container>
   </div>
 )
 }

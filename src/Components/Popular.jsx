@@ -1,10 +1,10 @@
 import React, { useEffect,useState } from'react'
 import axios from'axios'
 import { Link } from "react-router-dom";
-import BackgroungVideo from'./BackgroundVideo'
-import { Grid, Image,Pagination, Container,Input,Card,} from 'semantic-ui-react'
 import Menu from'./Menu'
-import Footer from'./Footer'
+import { Grid, Image,Pagination, Container,Input,Card,} from 'semantic-ui-react'
+
+
 
 
 
@@ -38,10 +38,10 @@ function Popular (){
   
   
   return(
-
+    
     <div>
-      <Menu /><br/><br/><br/><br/>
-        
+     
+        <Menu /><br/><br/><br/><br/>
         <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)} style={{position:"fixed",width:"90%",zIndex:"3"}}/><br/>
         <Container style={{marginTop:"50px"}}>
           <div >
@@ -75,7 +75,7 @@ function Popular (){
 <Pagination ellipsisItem={null} firstItem={null} lastItem={null} size="mini"  defaultActivePage={1} activePage={pagination}  totalPages={data.total_pages} onPageChange={(e,{activePage}) =>{setPagination(activePage)}}/>
 </div >
 </Container><br/><br/>
-<Footer/>
+
 </div>
 )
 }

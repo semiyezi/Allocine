@@ -35,8 +35,7 @@ const rechercher= (recherche) =>{
   
   return(
    <>
-    <Menu /><br/><br/><br/><br/>
-        
+    <Menu /><br/><br/><br/><br/> 
     <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)} style={{position:"fixed",width:"90%",zIndex:"3"}}/><br/>
     <Container style={{marginTop:"50px"}}>
       <div >
@@ -71,7 +70,7 @@ const rechercher= (recherche) =>{
       <Pagination  ellipsisItem={null} firstItem={null} lastItem={null} size="mini" defaultActivePage={1} activePage={pagination} totalPages={data.total_pages} onPageChange={(e,{activePage}) =>{setPagination(activePage)}}/>
     </div><br/><br/>
     </Container>
-    <Footer/>
+    
   </>
   
   )

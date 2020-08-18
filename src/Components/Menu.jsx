@@ -15,9 +15,9 @@ const Menu = () => {
         position:"fixed",
         width:"91%",
         top:"0",
-        zIndex:"5",
-        margin:"0",
-        padding:"0"
+        zIndex:"5"
+        
+        
     })
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -26,21 +26,19 @@ const Menu = () => {
                 setChanger({
                   background:"#2C3C65",
                     boxShadow:"",
-                    transition:'background 0.7s',
+                    transition:'background 0.5s',
                     position:"fixed",
                     width:"91%",
                     top:"0",
-                    zIndex:"5",
-                    margin:"0",
-                    padding:"0"
-                    
+                    zIndex:"5"
+                  
                    
                 })
             }else {
                 setChanger({
                   backgroundColor:"transparent",
                   boxShadow:"",
-                  transition:'background 0.7s',
+                  transition:'background 0.5s',
                   position:"fixed",
                   width:"91%",
                   top:"0",
