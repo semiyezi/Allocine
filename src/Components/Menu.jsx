@@ -11,7 +11,7 @@ const Menu = () => {
     const [changer, setChanger] = useState({
         backgroundColor:"transparent",
         boxShadow:"",
-        transition:'background 0.7s',
+        transition:'background 0.5s',
         position:"fixed",
         width:"91%",
         top:"0",

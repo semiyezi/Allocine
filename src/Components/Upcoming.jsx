@@ -36,7 +36,7 @@ const rechercher= (recherche) =>{
   return(
    <>
     <Menu /><br/><br/><br/><br/> 
-    <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)} style={{position:"fixed",width:"90%",zIndex:"3"}}/><br/>
+    <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)} style={{position:"fixed",width:"91%",zIndex:"3"}}/><br/>
     <Container style={{marginTop:"50px"}}>
       <div >
         <h1 style={{fontFamily:"monospace",color:"#2C3C65"}}> Vos meilleurs vidéos  </h1><br/>
