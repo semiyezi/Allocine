@@ -47,8 +47,8 @@ function TopVideo (){
         <Grid.Column mobile={16} tablet={8} computer={4}>
         <Link to={"/detail/"+item.id}>
 
-        <Card style={{height:"290px"}}>
-      <Image src={item.poster_path===null? "https://www.codeur.com/blog/wp-content/uploads/2017/02/video-marketing-original.jpg" : "https://image.tmdb.org/t/p/w500/"+item.poster_path} style={{height:"150px"}}/>
+        <Card style={{height:"320px"}}>
+      <Image src={item.poster_path===null? "https://www.codeur.com/blog/wp-content/uploads/2017/02/video-marketing-original.jpg" : "https://image.tmdb.org/t/p/w500/"+item.poster_path} style={{height:"200px"}}/>
       <Card.Content>
         <Card.Header style={{textAlign:"center",color:"#2C3C65"}}>{item.title} </Card.Header>
         <Card.Meta style={{textAlign:"center",color:"black"}}>{item.popularity}</Card.Meta>

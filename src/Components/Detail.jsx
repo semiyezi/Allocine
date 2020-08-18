@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Container,Button} from 'semantic-ui-react'
+import { Grid, Image,Icon, Container,Button} from 'semantic-ui-react'
 import  { useEffect,useState } from'react'
 import axios from'axios'
 import YouTube from 'react-youtube';
@@ -35,9 +35,9 @@ function Detail  () {
 
   <div>
     <Menu/>
-    <Container  style={{backgroundColor:"#fff",color:"##81807F",marginTop:"170px"}}>
+    <Container  style={{backgroundColor:"#fff",color:"##81807F",marginTop:"170px",width:"700px"}}>
       <div className="retour" >
-      <Link to="/upcoming" mobile={16} tablet={8} computer={4}> 
+      <Link to="/" mobile={16} tablet={8} computer={4}> 
           <Button icon='arrow circle left' style={{backgroundColor:"#fff"}} />
       </Link>
       </div>
@@ -46,15 +46,16 @@ function Detail  () {
           <Image src={"https://image.tmdb.org/t/p/w500/"+ detail.poster_path} />
         </Grid.Column>
         <Grid.Column mobile={16} tablet={12} computer={10} >
-           {lireVideo.map(video=><YouTube videoId={video.key} autoplay/> )}
-          <h1>Titre</h1>
+           <div style={{textAlign:"center",padding:"4%"}} >
+          <h3>Titre</h3>
           <p>{detail.title}</p>
-          <h1>Aperçu du film</h1>
+          <h3>Aperçu du film</h3>
           <p style={{textAlign:"justify",padding:"4%"}} >{detail.overview===null ? "Pas de résumé disponible pour ce film":detail.overview}</p>
-          <h1>Durée </h1>
+          <h3>Durée </h3>
           <p>{detail.runtime} minutes</p>
-          <h1>Vote</h1>
-          <p> {detail.vote_average} </p>
+          <h3>Vote</h3>
+          <p>  <Icon color='red' name='heart' />  {detail.vote_average}votes </p>
+          </div>
         </Grid.Column>
    
       </Grid>
