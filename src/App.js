@@ -3,6 +3,7 @@ import Upcoming from'./Components/Upcoming'
 import TopVideo from'./Components/Top'
 import Popular from'./Components/Popular'
 import Detail from './Components/Detail'
+import VoirVideo from'./Components/VoirVideo'
 import { BrowserRouter,Route,Switch} from "react-router-dom";
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route  path="/popular" component={Popular}/>
         <Route  path="/upcoming" component={Upcoming}/>
         <Route path="/detail/:id" component={Detail}/>
+        <Route exact path="/VoirVideo" component={VoirVideo}/>
         </Switch>
         </BrowserRouter>
       </div>

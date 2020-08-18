@@ -1,11 +1,12 @@
 import React from 'react'
-import { Grid, Image, Container, Button } from 'semantic-ui-react'
+import { Grid, Image, Container,Button} from 'semantic-ui-react'
 import  { useEffect,useState } from'react'
 import axios from'axios'
+import YouTube from 'react-youtube';
 
-import Menus from'./header'
-import {
-  BrowserRouter as Router,
+import Menu from'./Menu'
+import {Link,
+  
   useParams
 } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function Detail  () {
   console.log(params);
   const[detail,setdetail]=useState([]);
   const [data,setData]=useState([]);
+  const [lireVideo,setLireVideo]=useState([]);
 
   useEffect(()=>{
     axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=37aeb7ef66b2e8d4f4c2dc977aea8e27&language=fr-FR`)
@@ -26,31 +28,56 @@ function Detail  () {
      
     })
     .catch((e)=>console.log(e))
-  });
-  console.log(data);
+  })
+
+
+  //   axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=37aeb7ef66b2e8d4f4c2dc977aea8e27&language=fr-FR`)
+  //   .then((res)=>{
+  //     setLireVideo(res.data.results);
+  //     console.log("------------");
+  //     console.log(res.data.results);
+     
+     
+  //   })
+  //   .catch((e)=>console.log(e))
+  // },[]);
+  // console.log(data);
   
 
   return(
 
   <div>
-    <Menus/>
-    <Container  style={{backgroundColor:"#2C3C65",color:"#fff",marginTop:"170px"}}>
+    <Menu/>
+    <Container  style={{backgroundColor:"#fff",color:"##81807F",marginTop:"170px"}}>
+    <div className="retour" >
+   <Link to="/upcoming" mobile={16} tablet={8} computer={4}> 
+      <Button icon='arrow circle left' style={{backgroundColor:"#fff"}} />
+     </Link>
+  </div>
   <Grid>
     <Grid.Column mobile={16} tablet={8} computer={6}>
     <Image src={"https://image.tmdb.org/t/p/w500/"+ detail.poster_path} />
     </Grid.Column>
-    <Grid.Column mobile={16} tablet={12} computer={10}>
+    <Grid.Column mobile={16} tablet={12} computer={10} >
+      {lireVideo.map(video=><YouTube videoId={video.key} autoplay/> )}
       
      <h1>Titre</h1>
      <p>{detail.title}</p>
      <h1>Aperçu du film</h1>
-  <p style={{textAlign:"justify",padding:"4%"}} >{detail.overview===null ? ("Pas de résumé disponible pour ce film"):detail.overview}</p>
+  <p style={{textAlign:"justify",padding:"4%"}} >{detail.overview===null ? "Pas de résumé disponible pour ce film":detail.overview}</p>
   <h1>Durée </h1>
-  <p>{detail.runtime} secondes</p>
-  <p>vote_average: {detail.vote_average} et vote_count:{detail.vote_count}</p>
-  
+  <p>{detail.runtime} minutes</p>
+  <h1>Vote</h1>
+  <p> {detail.vote_average} </p>
+  <div style={{float:"left"}}>
+      <Link to="/VoirVideo" mobile={16} tablet={8} computer={4}> 
+      <Button icon='caret square right outline' style={{backgroundColor:"#81807F"}} />
+     </Link>
+    </div>
     </Grid.Column>
+   
   </Grid>
+ 
   </Container>
   </div>
 )

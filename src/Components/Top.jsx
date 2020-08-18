@@ -1,10 +1,9 @@
 import React, { useEffect,useState } from'react'
-import logo from '../logo.jpeg'
 import axios from'axios'
-import styled from'styled-components'
 import { Link } from "react-router-dom";
 import { Grid, Image,Pagination, Container,Input,Card} from 'semantic-ui-react'
-import Menus from'./header'
+import Menu from'./Menu'
+import Footer from'./Footer'
 import BackgroungVideo from'./BackgroundVideo'
 
 function TopVideo (){
@@ -35,12 +34,14 @@ function TopVideo (){
   
   return(
     <div>
-    <Menus/>
-    <BackgroungVideo/>
-    <Container style={{marginTop:"150px"}}>
-    <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)}/>
-      <h1 style={{fontFamily:"monospace"}}> Vos meilleurs vidéos</h1>
-  <Grid>
+     <Menu /><br/><br/><br/><br/>
+        
+        <Input fluid icon='search' placeholder='Search...' onChange={(e)=>rechercher (e.target.value)} style={{position:"fixed",width:"90%",zIndex:"3"}}/><br/>
+        <Container style={{marginTop:"50px"}}>
+          <div >
+            <h1 style={{fontFamily:"monospace",color:"#2C3C65"}}> Vos meilleurs vidéos  </h1><br/>
+          </div>
+          <Grid>
   {videostop
   .map((item)=>{
       return (
@@ -64,9 +65,11 @@ function TopVideo (){
     )
     })}
 </Grid><br/>
-<Pagination defaultActivePage={1} activePage={pagination}  totalPages={data.total_pages} onPageChange={(e,{activePage}) =>{setPagination(activePage)}}/>
-
-</Container>
+<div style={{textAlign:"center"}}>
+<Pagination  ellipsisItem={null} firstItem={null} lastItem={null} size="mini" defaultActivePage={1} activePage={pagination}  totalPages={data.total_pages} onPageChange={(e,{activePage}) =>{setPagination(activePage)}}/>
+</div>
+</Container><br/><br/>
+<Footer/>
 </div>
 )
 }
